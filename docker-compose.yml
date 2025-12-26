@@ -1,0 +1,5 @@
+version: '3.8' services: go-api: build: ./go-backend ports: - "8080:8080" environment: - DB_URL=postgres://user:pass@db:5432/msp_data
+
+n8n: image: n8nio/n8n ports: - "5678:5678" environment: - N8N_HOST=n8n.unio.digital - WEBHOOK_URL=https://n8n.unio.digital/
+
+db: image: postgres:15 environment: - POSTGRES_DB=msp_data - POSTGRES_PASSWORD=pass
